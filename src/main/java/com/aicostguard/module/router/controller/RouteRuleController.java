@@ -20,31 +20,31 @@ public class RouteRuleController {
     @PostMapping
     public Result<Void> create(@Valid @RequestBody RouteRuleRequest request) {
         routeRuleService.createRule(request);
-        return Result.ok();
+        return Result.success();
     }
 
     @PutMapping("/{id}")
     public Result<Void> update(@PathVariable Long id, @Valid @RequestBody RouteRuleRequest request) {
         routeRuleService.updateRule(id, request);
-        return Result.ok();
+        return Result.success();
     }
 
     @DeleteMapping("/{id}")
     public Result<Void> delete(@PathVariable Long id) {
         routeRuleService.deleteRule(id);
-        return Result.ok();
+        return Result.success();
     }
 
     @PutMapping("/{id}/status")
     public Result<Void> toggleStatus(@PathVariable Long id, @RequestParam Integer status) {
         routeRuleService.toggleStatus(id, status);
-        return Result.ok();
+        return Result.success();
     }
 
     @GetMapping
     public Result<IPage<RouteRule>> page(@RequestParam(defaultValue = "1") Integer current,
                                          @RequestParam(defaultValue = "10") Integer size) {
         Page<RouteRule> page = new Page<>(current, size);
-        return Result.ok(routeRuleService.pageRules(page));
+        return Result.success(routeRuleService.pageRules(page));
     }
 }

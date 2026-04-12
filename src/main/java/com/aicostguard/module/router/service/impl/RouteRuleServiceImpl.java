@@ -41,7 +41,7 @@ public class RouteRuleServiceImpl implements RouteRuleService {
     public void updateRule(Long id, RouteRuleRequest request) {
         RouteRule rule = routeRuleMapper.selectById(id);
         if (rule == null) {
-            throw new BusinessException(ResultCode.PARAM_ERROR);
+            throw new BusinessException(ResultCode.NOT_FOUND);
         }
         rule.setRuleName(request.getRuleName());
         rule.setConditionExpr(request.getConditionExpr());
@@ -62,7 +62,7 @@ public class RouteRuleServiceImpl implements RouteRuleService {
     public void toggleStatus(Long id, Integer status) {
         RouteRule rule = routeRuleMapper.selectById(id);
         if (rule == null) {
-            throw new BusinessException(ResultCode.PARAM_ERROR);
+            throw new BusinessException(ResultCode.NOT_FOUND);
         }
         rule.setStatus(status);
         routeRuleMapper.updateById(rule);
