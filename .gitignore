@@ -1,0 +1,16 @@
+target/
+*.class
+*.jar
+*.log
+.idea/
+*.iml
+*.iws
+.DS_Store
+.mvn/wrapper/maven-wrapper.jar
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Environment
+*.env
